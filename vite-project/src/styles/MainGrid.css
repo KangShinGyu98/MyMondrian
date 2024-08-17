@@ -5,5 +5,9 @@
 }
 
 .grid-item {
-  border: 1px solid #ccc;
+  background-color: white;
+}
+
+.buttons {
+  padding-bottom: 10px;
 }

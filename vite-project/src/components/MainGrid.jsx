@@ -10,7 +10,8 @@ export const MainGrid = () => {
     display: "grid",
     width: "80vw",
     height: "80vh",
-    border: "2px solid black",
+    gridGap: "20px",
+    boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.9)",
     resize: "both",
     overflow: "hidden",
   });
@@ -19,6 +20,7 @@ export const MainGrid = () => {
       ...gridStyles,
       gridTemplateColumns: columnFractions,
       gridTemplateRows: rowFractions,
+      backgroundColor: "rgba(0,0,0,0.9)", // for inner lines
     });
   }, [gridItems]);
 
