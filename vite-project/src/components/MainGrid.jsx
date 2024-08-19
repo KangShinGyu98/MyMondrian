@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useRef, useLayoutEffect, useState } from "react";
 import "../styles/MainGrid.css";
 export const MainGrid = () => {
   const [rowFractions, setRowFractions] = useState("");
@@ -6,16 +6,22 @@ export const MainGrid = () => {
   const [rows, setRows] = useState(3);
   const [columns, setColumns] = useState(3);
   const [gridItems, setGridItems] = useState([]);
+  const isFirstRender = useRef(true);
   const [gridStyles, setGridStyles] = useState({
     display: "grid",
     width: "80vw",
     height: "80vh",
     gridGap: "20px",
     boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.9)",
+    backgroundColor: "white",
     resize: "both",
     overflow: "hidden",
   });
   useLayoutEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    } // 최초 실행 방지(단 strict 모드 때문에 배포 시에만 됨)
     setGridStyles({
       ...gridStyles,
       gridTemplateColumns: columnFractions,
