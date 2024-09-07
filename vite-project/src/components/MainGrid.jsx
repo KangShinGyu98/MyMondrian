@@ -58,9 +58,9 @@ export const MainGrid = () => {
     setGridItems(newGridItems);
   };
   const CreateRandomGrid = () => {
-    const rowsNow = getRandomInt(1, 5);
+    const rowsNow = getRandomInt(1, 6);
     setRows(rowsNow);
-    const columnsNow = getRandomInt(1, 5);
+    const columnsNow = getRandomInt(1, 6);
     setColumns(columnsNow);
     createGrid(rowsNow, columnsNow);
   };
