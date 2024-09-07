@@ -1,9 +1,3 @@
-.grid-layout {
-  display: flex;
-  flex-direction: column;
-  place-items: center;
-}
-
 .grid-item {
   background-color: white;
 }

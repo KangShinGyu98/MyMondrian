@@ -8,6 +8,10 @@
   scroll-behavior: smooth; /* 부드러운 스크롤 */
 }
 
+h1 {
+  box-sizing: border-box;
+  padding: 20px;
+}
 .sectionContainer {
   height: 100vh; /* 뷰포트 높이만큼 설정 */
   scroll-snap-type: y mandatory; /* 세로 방향으로 스냅 */
@@ -16,10 +20,14 @@
 .section {
   height: 100vh; /* 화면 크기만큼 한 섹션을 차지 */
   scroll-snap-align: start; /* 섹션 시작 부분에 맞춰 스냅 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .section:nth-child(odd) {
   background-color: lightgray;
 }
 .section:nth-child(even) {
-  background-color: lightcoral;
+  background-color: lightslategray;
 }

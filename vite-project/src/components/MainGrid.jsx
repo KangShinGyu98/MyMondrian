@@ -66,22 +66,24 @@ export const MainGrid = () => {
   };
 
   return (
-    <div className="grid-layout">
+    <>
+      <div className="grid-layout">
+        <div className="main-grid" style={gridStyles}>
+          {gridItems.map((item) => (
+            <div key={item} className="grid-item">
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
       <div className="buttons">
         {/* <label htmlFor="rows">Rows : </label>
-        <input type="number" id="rows" min={"1"} value={rows} onChange={handleRowsChange} />
-        <label htmlFor="columns">Columns : </label>
-        <input type="number" id="columns" min={"1"} value={columns} onChange={handleColumnsChange} />
-        <button onClick={() => createGrid(rows, columns)}>CreateGrid</button> */}
+            <input type="number" id="rows" min={"1"} value={rows} onChange={handleRowsChange} />
+            <label htmlFor="columns">Columns : </label>
+            <input type="number" id="columns" min={"1"} value={columns} onChange={handleColumnsChange} />
+            <button onClick={() => createGrid(rows, columns)}>CreateGrid</button> */}
         <button onClick={CreateRandomGrid}>Generate</button>
       </div>
-      <div className="main-grid" style={gridStyles}>
-        {gridItems.map((item) => (
-          <div key={item} className="grid-item">
-            {item}
-          </div>
-        ))}
-      </div>
-    </div>
+    </>
   );
 };
