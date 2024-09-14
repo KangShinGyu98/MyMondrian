@@ -7,10 +7,6 @@ function App() {
     <div className="sectionContainer">
       <div className="section">
         <h1>Welcome To Your Art Gallery</h1>
-        <MainGrid />
-      </div>
-      <div className="section">
-        <h1>The Harmony of Symmetry and Asymmetry</h1>
         <BottomUp />
       </div>
       <div className="section">
