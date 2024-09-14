@@ -41,7 +41,6 @@ export const BottomUp = () => {
   const createGrid = () => {
     const visited = Array.from({ length: m }, () => Array(n).fill(null)); // newGridArray[m][n]
     const newGridItems = [];
-    console.log("what?");
     var z = 0;
     for (var i = 0; i < m; i++) {
       for (var j = 0; j < n; j++) {
@@ -67,10 +66,6 @@ export const BottomUp = () => {
           for (let k = newGridItem.colStart - 1; k < newGridItem.colEnd - 1; k++)
             visited[newGridItem.rowEnd - 2][k] = true;
         }
-        console.log("i : " + i);
-        console.log("j : " + j);
-        console.log(z++);
-        console.log(newGridItem);
         newGridItems.push(newGridItem);
       }
     }
@@ -78,11 +73,19 @@ export const BottomUp = () => {
     setGridItems(newGridItems);
   };
 
+  const generateColor = () => {
+    let randomNumber = Math.random();
+    if (randomNumber < 0.1) return "#fac901"; //yellow
+    if (randomNumber < 0.2) return "#225095"; //blue
+    if (randomNumber < 0.3) return "#dd0100"; //red
+  };
+
   function GridItem(rowStart, colStart, rowEnd, colEnd) {
     this.rowStart = rowStart;
     this.rowEnd = rowEnd;
     this.colStart = colStart;
     this.colEnd = colEnd;
+    this.color = generateColor();
   }
 
   return (
@@ -96,6 +99,7 @@ export const BottomUp = () => {
               style={{
                 gridRow: `${item.rowStart} / ${item.rowEnd}`,
                 gridColumn: `${item.colStart} / ${item.colEnd}`,
+                backgroundColor: generateColor(),
               }}
             >
               {idx}

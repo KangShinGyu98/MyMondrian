@@ -41,7 +41,7 @@ export const MainGrid = () => {
   }
   const convertToPercentageStrings = (RandomNumberArr) => {
     const sum = RandomNumberArr.reduce((acc, val) => acc + parseFloat(val), 0);
-    return RandomNumberArr.map((fraction) => `${((parseFloat(fraction) / sum) * 100).toFixed(2)}%`).join(" ");
+    return RandomNumberArr.map((fraction) => `${((parseFloat(fraction) / sum) * 100).toFixed(2)}fr`).join(" ");
   };
 
   const createGrid = (rows, columns) => {
@@ -65,12 +65,18 @@ export const MainGrid = () => {
     createGrid(rowsNow, columnsNow);
   };
 
+  const generateColor = () => {
+    let randomNumber = Math.random();
+    if (randomNumber < 0.1) return "#fac901"; //yellow
+    if (randomNumber < 0.2) return "#225095"; //blue
+    if (randomNumber < 0.3) return "#dd0100"; //red
+  };
   return (
     <>
       <div className="grid-layout">
         <div className="main-grid" style={gridStyles}>
           {gridItems.map((item) => (
-            <div key={item} className="grid-item">
+            <div key={item} style={{ backgroundColor: generateColor() }} className="grid-item">
               {item}
             </div>
           ))}
